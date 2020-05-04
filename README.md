@@ -11,11 +11,11 @@ node fuse.js
 Then start the server
 
 ```sh
-node dist/serve-spa.js --port 8080 --path ./public
+node dist/serve-single.js --port 8080 --path ./public
 ```
 
 ```sh
-Usage: serve-spa.js --<command> <value>
+Usage: serve-single.js --<command> <value>
 
 Options:
   --version     Show version number                                    [boolean]
