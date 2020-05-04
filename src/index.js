@@ -197,11 +197,12 @@ function response(res, filePath, contentType = "text-html") {
     if (err) {
       res.writeHead(404);
       res.end("Not Found");
+    } else {
+      res.writeHead(200, {
+        "Content-Type": contentType
+      });
+      res.write(file);
+      res.end();
     }
-    res.writeHead(200, {
-      "Content-Type": contentType
-    });
-    res.write(file);
-    res.end();
   });
 }
