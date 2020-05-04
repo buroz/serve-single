@@ -4,9 +4,9 @@ const fuse = FuseBox.init({
   homeDir: "src",
   target: "server@es6",
   output: "dist/$name.js",
-  useTypescriptCompiler: true
+  useTypescriptCompiler: true,
 });
 
-fuse.bundle("serve-spa").instructions(" > index.js");
+fuse.bundle("serve-single").instructions(" > index.js");
 
 fuse.run();

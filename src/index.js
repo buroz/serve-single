@@ -168,14 +168,17 @@ const contentTypes = {
   xslt: "application/xslt+xml",
   yaml: "text/yaml",
   yml: "text/yaml",
-  zip: "application/zip"
+  zip: "application/zip",
 };
 
 const options = yargs
-  .usage("Usage: serve-spa --<command> <value>")
+  .usage("Usage: node serve-single.js --<command> <value>")
   .option("port", { alias: "po", describe: "HTTP PORT", type: "number" })
   .option("path", { alias: "pa", describe: "PUBLIC PATH", type: "string" })
-  .demandOption(["port", "path"], "Please provide both port and path arguments to work with this tool")
+  .demandOption(
+    ["port", "path"],
+    "Please provide both port and path arguments to work with this tool"
+  )
   .help().argv;
 
 const PORT = options.port;
@@ -199,7 +202,7 @@ function response(res, filePath, contentType = "text-html") {
       res.end("Not Found");
     } else {
       res.writeHead(200, {
-        "Content-Type": contentType
+        "Content-Type": contentType,
       });
       res.write(file);
       res.end();
